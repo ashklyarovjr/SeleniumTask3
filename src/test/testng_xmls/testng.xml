@@ -3,10 +3,12 @@
 <suite name="All">
     <test name="">
         <classes>
+            <class name="tests.BaseTest"/>
             <class name="tests.SortByNameTest"/>
             <class name="tests.SortByPriceTest"/>
             <class name="tests.TwoItemsCompareTest"/>
-            <class name=""/>
+            <class name="tests.SelectionByFunctionTest"/>
+            <class name="tests.SelectionByManufacturerTest"/>
         </classes>
     </test>
     <listeners>

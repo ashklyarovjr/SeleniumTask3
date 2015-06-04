@@ -2,21 +2,21 @@ package tests;
 
 import factory.webdriver.WebDriverFactory;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 
 public class BaseTest {
 
     private WebDriver driver;
 
-    @BeforeClass
+    @BeforeSuite
     public void setUp() throws Exception {
         WebDriverFactory driverFactory = new WebDriverFactory();
 
         driver = driverFactory.getDriver("firefox");
     }
 
-    @AfterClass
+    @AfterSuite
     public void tearDown() throws Exception {
         driver.quit();
     }
