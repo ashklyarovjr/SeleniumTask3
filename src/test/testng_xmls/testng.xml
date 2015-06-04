@@ -3,6 +3,9 @@
 <suite name="All">
     <test name="">
         <classes>
+            <class name="tests.SortByNameTest"/>
+            <class name="tests.SortByPriceTest"/>
+            <class name="tests.TwoItemsCompareTest"/>
             <class name=""/>
         </classes>
     </test>
