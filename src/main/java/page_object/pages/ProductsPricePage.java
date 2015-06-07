@@ -6,6 +6,6 @@ import page_object.base.AbstractPage;
 
 public class ProductsPricePage extends AbstractPage{
     public ProductsPricePage(WebDriver driver) {
-        super(driver);
+        super(driver,driver.getCurrentUrl());
     }
 }

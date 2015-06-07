@@ -22,6 +22,9 @@ public final class XpathContainer {
     }
 
     public final class ProductInfoXPATHContainer {
+        public static final String PRODUCT_NAME_XPATH = "//div[@id='page-subheader']/h1";
+        public static final String PRODUCT_PRICE_XPATH = "";
+        
 
     }
 
