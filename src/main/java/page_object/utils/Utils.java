@@ -6,9 +6,11 @@ import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
-public class Utils {
+public class Utils<T extends Comparable> {
+
 
     private static final Logger LOGGER_INFO = Logger.getLogger(Utils.class);
 
@@ -19,7 +21,8 @@ public class Utils {
             LOGGER_ERR.error("Utils.class. getPriceFromString method exception. Price is null.");
             throw new IllegalArgumentException("Something went wrong. Cannot get price!");
         }
-        String[] splittedPrice = price.getText().trim().split("\\s");
+        String[] splittedPrice = getTextValueOfWebElement(price).trim().split("\\s");
+        LOGGER_INFO.info("Utils.class. getPriceFromString method success.");
         return Integer.parseInt(splittedPrice[0]);
     }
 
@@ -31,16 +34,22 @@ public class Utils {
         String[] splitted = description.getText().trim().split(";\\s");
         List<String> newDesc = new ArrayList<>();
         Collections.addAll(newDesc, splitted);
+        LOGGER_INFO.info("Utils.class. parseDescriptionToStringList(WebElement) method success.");
         return newDesc;
     }
 
-    //TODO
-    public static List<String> parseDescriptionToStringList(List<WebElement> description) {
-        if (description == null) {
+
+    public static List<String> parseWebElementListToStringList(List<WebElement> elements) {
+        if (elements == null) {
             LOGGER_ERR.error("Utils.class. parseDescriptionToStringList(List<WebElement>) method exception. Description is null.");
             throw new IllegalArgumentException("Something went wrong. Cannot get description!");
         }
-        return null;
+        List<String> stringList = new ArrayList<>();
+        for (WebElement element : elements) {
+            stringList.add(getTextValueOfWebElement(element));
+        }
+        LOGGER_INFO.info("Utils.class. parseDescriptionToStringList(List<WebElement>) method success.");
+        return stringList;
     }
 
     public static boolean compareDescriptions(List<String> smallDescription, List<String> fullDescription) {
@@ -96,5 +105,33 @@ public class Utils {
         }
         return getTextValueOfWebElement(first).equalsIgnoreCase(getTextValueOfWebElement(second));
     }
+
+    public static boolean checkIfStringListIsSorted(List<String> list) {
+        List<String> temporary = new ArrayList<>();
+        temporary.addAll(list);
+        Collections.sort(temporary);
+        return  temporary == list;
+    }
+
+    public static boolean checkIfIntegerListIsSorted(List<Integer> list) {
+        List<Integer> temporary = new ArrayList<>();
+        temporary.addAll(list);
+        Collections.sort(temporary);
+        return  temporary == list;
+    }
+
+    public static List<Integer> convertPriceListToIntegerList(List<WebElement> priceList) {
+        if (priceList == null) {
+            LOGGER_ERR.error("Utils.class. convertPriceListToIntegerList method exception. Price list is null.");
+            throw new IllegalArgumentException("Something went wrong. Cannot get description!");
+        }
+        List<Integer> prices = new ArrayList<>();
+        for (WebElement price : priceList) {
+            prices.add(getPriceFromString(price));
+        }
+        return prices;
+    }
+
+
 
 }

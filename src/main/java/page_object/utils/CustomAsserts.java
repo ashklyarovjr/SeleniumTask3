@@ -2,6 +2,7 @@ package page_object.utils;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
@@ -22,11 +23,20 @@ public class CustomAsserts {
         }
     }
 
-    public static void assertElementAttributeValue(WebElement element, String attribute, String value) {
+    public static void assertElementsAttributeValue(WebElement element, String attribute, String value) {
         try {
             assertThat(element.getAttribute(attribute), is(value));
         } catch (AssertionError e) {
             LOGGER_ERR.error("CustomAsserts.class. Assertion error in assertElementsAttributeValue method." + e.getMessage());
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void assertThatElementIsPresentOnPage(WebElement element) {
+        try {
+            Assert.assertNotNull(element);
+        } catch (AssertionError e) {
+            LOGGER_ERR.error("CustomAsserts.class. Assertion error in assertThatElementIsPresentOnPage method." + e.getMessage());
             System.out.println(e.getMessage());
         }
     }

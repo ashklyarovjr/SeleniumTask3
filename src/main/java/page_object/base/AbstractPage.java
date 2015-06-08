@@ -43,4 +43,6 @@ public abstract class AbstractPage {
         title = driver.getTitle();
         return this;
     }
+
+
 }
