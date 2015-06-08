@@ -10,7 +10,10 @@ public final class XpathContainer {
         public static final String FIRST_FIVE_PRODUCTS_NAMES_LIST_XPATH = "//preceding-sibling::div[@class='item'][16]/div[@class='name']/a";
         public static final String ALL_PRODUCTS_PRICES_LIST_XPATH = "//div[@class='catalog']/div[@class='item']/div[@class='price']/a";
         public static final String FIRST_FIVE_PRODUCTS_PRICES_LIST_XPATH = "//preceding-sibling::div[@class='item'][16]/div[@class='price']/strong";
-        public static final String FIRST_FIVE_PRODUCTS_DESCRIPTIONS_LIST_XPATH = "//preceding-sibling::div[@class='item'][16]/div[@class='description']";
+        public static final String FIRST_PRODUCT_COMPARE_OPTION = "(//span[contains(@class, 'compare_add_link')][1])[1]";
+        public static final String SECOND_PRODUCT_COMPARE_OPTION = "(//span[contains(@class, 'compare_add_link')][1])[2]";
+        public static final String MAIN_PAGE_LINK_XPATH = "//div[@id='page-breadcrumbs']/a[@href='http://pn.com.ua/']";
+        public static final String ALL_PRODUCTS_INFO_IN_THE_LIST = "//div[@class='item']/div[@class='name']/a | //div[@class='item']/div[@class='description'] | //div[@class='item']//strong";
     }
 
     public final class MainPageXPATHContainer {
@@ -22,13 +25,20 @@ public final class XpathContainer {
     }
 
     public final class ProductInfoXPATHContainer {
-        public static final String PRODUCT_NAME_XPATH = "//div[@id='page-subheader']/h1";
-        public static final String PRODUCT_PRICE_XPATH = "";
-        
+        public static final String PRODUCT_PRICE_NAME_DESCRIPTION_XPATH = "//div[@id='page-subheader']/h1 | //div[@class=\"summary-price\"]/b | //div[@class='row']/span[2]";
+        public static final String MAIN_PAGE_LINK_XPATH = "//div[@id='page-breadcrumbs']/a[@href='http://pn.com.ua/']";
+
 
     }
 
-    public static class ProductPriceXPATHContainer {
+    public final class ProductPriceXPATHContainer {
+        public static final String MAIN_PAGE_LINK_XPATH = "//div[@id='page-breadcrumbs']/a[@href='http://pn.com.ua/']";
+        public static final String FIRST_FIVE_PRODUCTS_FROM_PRICE_XPATH = "//preceding-sibling::tr[contains(@class,'price_table_tr')][20]//a[@class='description-link']";
+    }
+
+    public final class ProductsComparisonXPATHCantainer {
+        public static final String BOTH_PRODUCTS_INFO_XPATH = "//table[@class='compare']//td[position() > 1]//.. | //table[@class='compare']//td[position() > 1]";
+        public static final String MAIN_PAGE_LINK_XPATH = "//div[@id='page-breadcrumbs']/a[@href='http://pn.com.ua/']";
 
     }
 

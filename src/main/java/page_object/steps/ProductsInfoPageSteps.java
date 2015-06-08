@@ -1,7 +1,17 @@
 package page_object.steps;
 
-/**
- * Created by Anton_Shkliarov on 6/5/2015.
- */
-public class ProductsInfoPageSteps {
+import org.apache.log4j.Logger;
+import org.openqa.selenium.WebDriver;
+import page_object.base.AbstractSteps;
+
+
+public class ProductsInfoPageSteps extends AbstractSteps {
+
+    private static final Logger LOGGER_INFO = Logger.getLogger(ProductsInfoPageSteps.class);
+
+    private static final Logger LOGGER_ERR = Logger.getLogger(ProductsInfoPageSteps.class);
+
+    public ProductsInfoPageSteps(WebDriver driver) {
+        super(driver);
+    }
 }

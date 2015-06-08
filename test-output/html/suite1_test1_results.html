@@ -12,7 +12,7 @@
 <body>
 <h1>pn_ua_test</h1>
 <p>
-  Test duration: 7.148s
+  Test duration: 9.928s
 </p>
 
 
@@ -20,12 +20,12 @@
   <table class="resultsTable">
     <tr><th colspan="3" class="header failed">Failed Tests</th></tr>
           <tr>
-        <td colspan="3" class="group">tests.TwoItemsCompareTest</td>
+        <td colspan="3" class="group">tests.SelectionByFunctionTest</td>
       </tr>
             
 <tr>
   <td class="method">
-                  testFour
+                  testSelectionByFunction
       </td>
   <td class="duration">
     0.003s
@@ -35,9 +35,11 @@
     
         
 
-        <a href="javascript:toggleElement('exception-0', 'block')" title="Click to expand/collapse"><b>java.lang.ArithmeticException: aaa</b></a><br />
+        <a href="javascript:toggleElement('exception-0', 'block')" title="Click to expand/collapse"><b>java.lang.AssertionError: null</b></a><br />
     <div class="stackTrace" id="exception-0">
-              tests.TwoItemsCompareTest.testFour(TwoItemsCompareTest.java:9)<br />
+              org.testng.Assert.fail(Assert.java:94)<br />
+              org.testng.Assert.fail(Assert.java:101)<br />
+              tests.SelectionByFunctionTest.testSelectionByFunction(SelectionByFunctionTest.java:11)<br />
               sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
               sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
               sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
@@ -73,24 +75,6 @@
 
   <table class="resultsTable">
     <tr><th colspan="3" class="header passed">Passed Tests</th></tr>
-          <tr>
-        <td colspan="3" class="group">tests.SelectionByFunctionTest</td>
-      </tr>
-            
-<tr>
-  <td class="method">
-                  testSelectionByFunction
-      </td>
-  <td class="duration">
-    0.001s
-  </td>
-  <td class="result">
-        
-    
-        
-
-      </td>
-</tr>
           <tr>
         <td colspan="3" class="group">tests.SelectionByManufacturerTest</td>
       </tr>
@@ -137,6 +121,42 @@
       </td>
   <td class="duration">
     0.001s
+  </td>
+  <td class="result">
+        
+    
+        
+
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">tests.TwoItemsCompareTest</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  testFour
+      </td>
+  <td class="duration">
+    0.000s
+  </td>
+  <td class="result">
+        
+    
+        
+
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">tests.WeightControlOptionTest</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  testSix
+      </td>
+  <td class="duration">
+    0.000s
   </td>
   <td class="result">
         

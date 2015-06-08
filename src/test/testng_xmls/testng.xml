@@ -9,6 +9,7 @@
             <class name="tests.TwoItemsCompareTest"/>
             <class name="tests.SelectionByFunctionTest"/>
             <class name="tests.SelectionByManufacturerTest"/>
+            <class name="tests.WeightControlOptionTest"/>
         </classes>
     </test>
     <listeners>
