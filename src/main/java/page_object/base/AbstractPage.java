@@ -15,7 +15,6 @@ public abstract class AbstractPage {
         this.driver = driver;
         this.url = url;
         title = driver.getTitle();
-
     }
 
     public AbstractPage(WebDriver driver) {
@@ -26,11 +25,7 @@ public abstract class AbstractPage {
         return driver;
     }
 
-    protected void setUrl(String url) {
-        this.url = url;
-    }
-
-    protected String getUrl() {
+    public String getUrl() {
         return url;
     }
 

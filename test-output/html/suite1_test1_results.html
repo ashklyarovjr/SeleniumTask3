@@ -12,7 +12,7 @@
 <body>
 <h1>pn_ua_test</h1>
 <p>
-  Test duration: 9.928s
+  Test duration: 7.099s
 </p>
 
 
@@ -20,7 +20,7 @@
   <table class="resultsTable">
     <tr><th colspan="3" class="header failed">Failed Tests</th></tr>
           <tr>
-        <td colspan="3" class="group">tests.SelectionByFunctionTest</td>
+        <td colspan="3" class="group">tests.FilterByPriceTest</td>
       </tr>
             
 <tr>
@@ -39,7 +39,111 @@
     <div class="stackTrace" id="exception-0">
               org.testng.Assert.fail(Assert.java:94)<br />
               org.testng.Assert.fail(Assert.java:101)<br />
-              tests.SelectionByFunctionTest.testSelectionByFunction(SelectionByFunctionTest.java:11)<br />
+              tests.FilterByPriceTest.testSelectionByFunction(SelectionByFunctionTest.java:11)<br />
+              sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.lang.reflect.Method.invoke(Method.java:497)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:696)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:882)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1189)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)<br />
+              org.testng.TestRunner.privateRun(TestRunner.java:767)<br />
+              org.testng.TestRunner.run(TestRunner.java:617)<br />
+              org.testng.SuiteRunner.runTest(SuiteRunner.java:348)<br />
+              org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)<br />
+              org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)<br />
+              org.testng.SuiteRunner.run(SuiteRunner.java:254)<br />
+              org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br />
+              org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br />
+              org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)<br />
+              org.testng.TestNG.runSuitesLocally(TestNG.java:1149)<br />
+              org.testng.TestNG.run(TestNG.java:1057)<br />
+              Runner.main(Runner.java:13)<br />
+              sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.lang.reflect.Method.invoke(Method.java:497)<br />
+              com.intellij.rt.execution.application.AppMain.main(AppMain.java:140)<br />
+                </div>
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">tests.SortByNameTest</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  testSortByName
+      </td>
+  <td class="duration">
+    0.003s
+  </td>
+  <td class="result">
+        
+    
+        
+
+        <a href="javascript:toggleElement('exception-1', 'block')" title="Click to expand/collapse"><b>java.lang.NullPointerException</b></a><br />
+    <div class="stackTrace" id="exception-1">
+              page_object.base.AbstractPage.&lt;init&gt;(AbstractPage.java:17)<br />
+              page_object.pages.MainPage.&lt;init&gt;(MainPage.java:16)<br />
+              page_object.steps.MainPageSteps.&lt;init&gt;(MainPageSteps.java:24)<br />
+              tests.SortByNameTest.testSortByName(SortByNameTest.java:11)<br />
+              sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.lang.reflect.Method.invoke(Method.java:497)<br />
+              org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:696)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:882)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1189)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)<br />
+              org.testng.TestRunner.privateRun(TestRunner.java:767)<br />
+              org.testng.TestRunner.run(TestRunner.java:617)<br />
+              org.testng.SuiteRunner.runTest(SuiteRunner.java:348)<br />
+              org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)<br />
+              org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)<br />
+              org.testng.SuiteRunner.run(SuiteRunner.java:254)<br />
+              org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br />
+              org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br />
+              org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)<br />
+              org.testng.TestNG.runSuitesLocally(TestNG.java:1149)<br />
+              org.testng.TestNG.run(TestNG.java:1057)<br />
+              Runner.main(Runner.java:13)<br />
+              sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+              sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
+              sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
+              java.lang.reflect.Method.invoke(Method.java:497)<br />
+              com.intellij.rt.execution.application.AppMain.main(AppMain.java:140)<br />
+                </div>
+      </td>
+</tr>
+          <tr>
+        <td colspan="3" class="group">tests.SortByPriceTest</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  testSortByPrice
+      </td>
+  <td class="duration">
+    0.000s
+  </td>
+  <td class="result">
+        
+    
+        
+
+        <a href="javascript:toggleElement('exception-2', 'block')" title="Click to expand/collapse"><b>java.lang.NullPointerException</b></a><br />
+    <div class="stackTrace" id="exception-2">
+              page_object.base.AbstractPage.&lt;init&gt;(AbstractPage.java:17)<br />
+              page_object.pages.MainPage.&lt;init&gt;(MainPage.java:16)<br />
+              page_object.steps.MainPageSteps.&lt;init&gt;(MainPageSteps.java:24)<br />
+              tests.SortByPriceTest.testSortByPrice(SortByPriceTest.java:10)<br />
               sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
               sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)<br />
               sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br />
@@ -76,7 +180,7 @@
   <table class="resultsTable">
     <tr><th colspan="3" class="header passed">Passed Tests</th></tr>
           <tr>
-        <td colspan="3" class="group">tests.SelectionByManufacturerTest</td>
+        <td colspan="3" class="group">tests.FilterByManufacturerTest</td>
       </tr>
             
 <tr>
@@ -85,42 +189,6 @@
       </td>
   <td class="duration">
     0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-      </td>
-</tr>
-          <tr>
-        <td colspan="3" class="group">tests.SortByNameTest</td>
-      </tr>
-            
-<tr>
-  <td class="method">
-                  testTwo
-      </td>
-  <td class="duration">
-    0.000s
-  </td>
-  <td class="result">
-        
-    
-        
-
-      </td>
-</tr>
-          <tr>
-        <td colspan="3" class="group">tests.SortByPriceTest</td>
-      </tr>
-            
-<tr>
-  <td class="method">
-                  testThree
-      </td>
-  <td class="duration">
-    0.001s
   </td>
   <td class="result">
         
@@ -148,7 +216,7 @@
       </td>
 </tr>
           <tr>
-        <td colspan="3" class="group">tests.WeightControlOptionTest</td>
+        <td colspan="3" class="group">tests.FilterByWeightControlOptionTest</td>
       </tr>
             
 <tr>
@@ -156,7 +224,7 @@
                   testSix
       </td>
   <td class="duration">
-    0.000s
+    0.001s
   </td>
   <td class="result">
         

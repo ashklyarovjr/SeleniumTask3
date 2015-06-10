@@ -7,6 +7,7 @@ import org.testng.Assert;
 import page_object.base.AbstractSteps;
 import page_object.constants_containers.XpathContainer;
 import page_object.pages.MainPage;
+import page_object.pages.ProductsComparisonPage;
 import page_object.pages.ProductsListPage;
 import page_object.utils.CustomAsserts;
 import page_object.utils.CustomWaits;
@@ -16,11 +17,11 @@ import java.util.List;
 
 public class ProductsListPageSteps extends AbstractSteps{
 
-    private static final Logger LOGGER_INFO = Logger.getLogger(ProductsListPageSteps.class);
-
-    private static final Logger LOGGER_ERR = Logger.getLogger(ProductsListPageSteps.class);
-
     ProductsListPage productsListPage;
+
+    MainPage mainPage;
+
+    ProductsComparisonPage productsComparisonPage;
 
     public ProductsListPageSteps(WebDriver driver, ProductsListPage productsListPage) {
         super(driver);
@@ -69,8 +70,46 @@ public class ProductsListPageSteps extends AbstractSteps{
 
     public MainPageSteps goToMainPage() {
 
-        
+        mainPage = new MainPage(driver);
 
-        return new MainPageSteps(driver);
+        mainPage.goToPage();
+
+        CustomAsserts.assertThatElementIsPresentOnPage(mainPage.getNewsLabel());
+
+        return new MainPageSteps(driver, mainPage);
     }
+
+    public ProductsListPageSteps addFirstProductToComparison() {
+
+        productsListPage = productsListPage.addFirstProductToComparison();
+
+        CustomAsserts.assertThatElementIsPresentOnPage(productsListPage.getCompareProductsLink());
+
+        return this;
+    }
+
+    public ProductsListPageSteps addSecondProductToComparison() {
+
+        productsListPage = productsListPage.addSecondProductToComparison();
+
+        CustomAsserts.assertThatElementIsPresentOnPage(productsListPage.getCompareProductsLink());
+
+        String linkValue = Utils.getTextValueOfWebElement(productsListPage.getCompareProductsLink());
+
+        CustomAsserts.assertThatStringContainsSubstring(linkValue, "2");
+
+        return this;
+    }
+
+    public ProductsComparisonPageSteps goToComparisonPage() {
+
+        productsComparisonPage = productsListPage.goToProductsComparison();
+
+        CustomAsserts.assertThatStringContainsSubstring(productsComparisonPage.getUrl(), "compare");
+
+        return new ProductsComparisonPageSteps(driver, productsComparisonPage);
+    }
+
+
+
 }

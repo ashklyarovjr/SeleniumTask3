@@ -8,9 +8,6 @@ import page_object.pages.ProductsPricePage;
 
 public class ProductsPricePageSteps extends AbstractSteps {
 
-    private static final Logger LOGGER_INFO = Logger.getLogger(ProductsPricePageSteps.class);
-
-    private static final Logger LOGGER_ERR = Logger.getLogger(ProductsPricePageSteps.class);
 
     private ProductsPricePage productsPricePage;
 

@@ -31,7 +31,6 @@ public class ProductsListPage extends AbstractPage {
     private List<WebElement> firstFiveProductsNames;
 
 
-
     @FindBy(xpath = XpathContainer.ProductsListXPATHContainer.FIRST_PRODUCT_COMPARE_OPTION_XPATH)
     private WebElement firstProductAdditionToComparisonLink;
 
@@ -75,6 +74,9 @@ public class ProductsListPage extends AbstractPage {
         return firstFiveProductsNames;
     }
 
+    public WebElement getCompareProductsLink() {
+        return compareProductsLink;
+    }
 
     public ProductsListPage sortByName() {
         productSortByNameOption.click();

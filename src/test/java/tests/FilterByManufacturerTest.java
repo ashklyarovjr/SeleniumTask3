@@ -3,7 +3,7 @@ package tests;
 
 import org.testng.annotations.Test;
 
-public class SelectionByManufacturerTest extends BaseTest {
+public class FilterByManufacturerTest extends BaseTest {
     @Test
     public void testOne() throws Exception {
 

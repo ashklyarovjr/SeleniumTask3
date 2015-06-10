@@ -3,7 +3,7 @@ package tests;
 
 import org.testng.annotations.Test;
 
-public class WeightControlOptionTest {
+public class FilterByWeightControlOptionTest {
     @Test
     public void testSix() throws Exception {
 

@@ -4,12 +4,9 @@ package page_object.utils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
-public class Utils<T extends Comparable> {
+public class Utils {
 
 
     private static final Logger LOGGER_INFO = Logger.getLogger(Utils.class);
@@ -22,6 +19,7 @@ public class Utils<T extends Comparable> {
             throw new IllegalArgumentException("Something went wrong. Cannot get price!");
         }
         String[] splittedPrice = getTextValueOfWebElement(price).trim().split("\\s");
+
         LOGGER_INFO.info("Utils.class. getPriceFromString method success.");
         return Integer.parseInt(splittedPrice[0]);
     }
@@ -31,7 +29,10 @@ public class Utils<T extends Comparable> {
             LOGGER_ERR.error("Utils.class. parseDescriptionToStringList(WebElement) method exception. Description is null.");
             throw new IllegalArgumentException("Something went wrong. Cannot get description!");
         }
-        String[] splitted = description.getText().trim().split(";\\s");
+        String[] splitted = description.getText().trim().split("\\s\\b|;\\s");
+
+        splitted[0] = splitted[0] + splitted[1];
+
         List<String> newDesc = new ArrayList<>();
         Collections.addAll(newDesc, splitted);
         LOGGER_INFO.info("Utils.class. parseDescriptionToStringList(WebElement) method success.");
@@ -107,17 +108,42 @@ public class Utils<T extends Comparable> {
     }
 
     public static boolean checkIfStringListIsSorted(List<String> list) {
+        if (list == null) {
+            LOGGER_ERR.error("Utils.class. checkIfStringListIsSorted method exception. List is null.");
+            throw new IllegalArgumentException("Something went wrong. Cannot get description!");
+        }
+
         List<String> temporary = new ArrayList<>();
+
         temporary.addAll(list);
+
         Collections.sort(temporary);
-        return  temporary == list;
+
+        int counter = 0;
+        for (int i = 0; i < list.size(); i++) {
+            if (Objects.equals(temporary.get(i), list.get(i)))
+                counter++;
+        }
+        return counter == list.size();
     }
 
     public static boolean checkIfIntegerListIsSorted(List<Integer> list) {
+        if (list == null) {
+            LOGGER_ERR.error("Utils.class. checkIfIntegerListIsSorted method exception. List is null.");
+            throw new IllegalArgumentException("Something went wrong. Cannot get description!");
+        }
+
         List<Integer> temporary = new ArrayList<>();
+
         temporary.addAll(list);
+
         Collections.sort(temporary);
-        return  temporary == list;
+        int counter = 0;
+        for (int i = 0; i < list.size(); i++) {
+            if (Objects.equals(temporary.get(i), list.get(i)))
+                counter++;
+        }
+        return counter == list.size();
     }
 
     public static List<Integer> convertPriceListToIntegerList(List<WebElement> priceList) {
@@ -131,6 +157,18 @@ public class Utils<T extends Comparable> {
         }
         return prices;
     }
+
+    public static boolean checkThatListContainsAnotherList(List<String> container, List<String> content) {
+        if (container == null || content == null) {
+            if (container == null)
+                LOGGER_ERR.error("Utils.class. checkThatListContainsAnotherList method exception. Container list is null.");
+            else
+                LOGGER_ERR.error("Utils.class. checkThatListContainsAnotherList method exception. Content list is null.");
+            throw new IllegalArgumentException("Something went wrong. Cannot get lists!");
+        }
+        return container.containsAll(content);
+    }
+
 
 
 

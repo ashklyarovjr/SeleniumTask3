@@ -18,12 +18,29 @@ public class ProductsInfoPage extends AbstractPage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBys(@FindBy(xpath = XpathContainer.ProductInfoXPATHContainer.PRODUCT_PRICE_NAME_DESCRIPTION_XPATH))
+    @FindBys(@FindBy(xpath = XpathContainer.ProductInfoXPATHContainer.PRODUCT_DESCRIPTION_XPATH))
     private List<WebElement> productsBaseInfoList;
 
     @FindBy(xpath = XpathContainer.ProductInfoXPATHContainer.MAIN_PAGE_LINK_XPATH)
     private WebElement mainPageLink;
 
+    @FindBy(xpath = XpathContainer.ProductInfoXPATHContainer.COMPARE_PRODUCTS_LINK_XPATH)
+    private WebElement compareProductsLink;
 
+    public List<WebElement> getProductsBaseInfoList() {
+        return productsBaseInfoList;
+    }
 
+    public WebElement getMainPageLink() {
+        return mainPageLink;
+    }
+
+    public WebElement getCompareProductsLink() {
+        return compareProductsLink;
+    }
+
+    public ProductsComparisonPage goToComparisonPage() {
+        compareProductsLink.click();
+        return new ProductsComparisonPage(driver);
+    }
 }

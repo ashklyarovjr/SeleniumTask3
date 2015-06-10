@@ -7,9 +7,9 @@
             <class name="tests.SortByNameTest"/>
             <class name="tests.SortByPriceTest"/>
             <class name="tests.TwoItemsCompareTest"/>
-            <class name="tests.SelectionByFunctionTest"/>
-            <class name="tests.SelectionByManufacturerTest"/>
-            <class name="tests.WeightControlOptionTest"/>
+            <class name="tests.FilterByPriceTest"/>
+            <class name="tests.FilterByManufacturerTest"/>
+            <class name="tests.FilterByWeightControlOptionTest"/>
         </classes>
     </test>
     <listeners>

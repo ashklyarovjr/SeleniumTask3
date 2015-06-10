@@ -6,14 +6,14 @@
            skipped="0"
            time="0.003">
   <properties />
-            <testcase name="testSelectionByFunction" time="0.003" classname="tests.SelectionByFunctionTest">
+            <testcase name="testSelectionByFunction" time="0.003" classname="tests.FilterByPriceTest">
                 <failure type="java.lang.AssertionError"
                   message="null"
               >
 <![CDATA[java.lang.AssertionError: null
   org.testng.Assert.fail(Assert.java:94)
   org.testng.Assert.fail(Assert.java:101)
-  tests.SelectionByFunctionTest.testSelectionByFunction(SelectionByFunctionTest.java:11)
+  tests.FilterByPriceTest.testSelectionByFunction(SelectionByFunctionTest.java:11)
   sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
   sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
   sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

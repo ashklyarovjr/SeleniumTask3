@@ -32,6 +32,35 @@ public class MainPage extends AbstractPage {
     @FindBy(xpath = XpathContainer.MainPageXPATHContainer.MICROWAVE_OWENS_CATEGORY_XPATH)
     private WebElement microwavesCategoryLink;
 
+    @FindBy(xpath = XpathContainer.MainPageXPATHContainer.NEWS_LABEL_XPATH)
+    private WebElement newsLabel;
+
+
+    public WebElement getFridgeCategoryLink() {
+        return fridgeCategoryLink;
+    }
+
+    public WebElement getConditionersCategoryLink() {
+        return conditionersCategoryLink;
+    }
+
+    public WebElement getWashersCategoryLink() {
+        return washersCategoryLink;
+    }
+
+    public WebElement getBreadBakersCategoryLink() {
+        return breadBakersCategoryLink;
+    }
+
+    public WebElement getMicrowavesCategoryLink() {
+        return microwavesCategoryLink;
+    }
+
+    public WebElement getNewsLabel() {
+        return newsLabel;
+    }
+
+
     public ProductsListPage chooseFridgesCategory() {
         fridgeCategoryLink.click();
         return new ProductsListPage(driver);

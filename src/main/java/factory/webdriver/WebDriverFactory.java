@@ -7,18 +7,29 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.opera.OperaDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class WebDriverFactory extends AbstractDriverFactory {
+
+    private WebDriver driver;
+
     @Override
     public WebDriver getDriver(String parameter) {
         switch (parameter) {
             case "firefox":
-                return new FirefoxDriver();
+                driver = new FirefoxDriver();
+                driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+                return driver;
             case "ie":
                 System.setProperty("webdriver.ie.driver", "..\\SeleniumTask3\\WebDrivers\\IEDriverServer32.exe");
-                return new InternetExplorerDriver();
+                driver = new InternetExplorerDriver();
+                driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+                return driver;
             case "chrome":
                 System.setProperty("webdriver.chrome.driver", "..\\SeleniumTask3\\WebDrivers\\chromedriver.exe");
-                return new ChromeDriver();
+                driver = new ChromeDriver();
+                driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
+                return driver;
             default:
                 throw new IllegalArgumentException("This browser is undefined!");
         }

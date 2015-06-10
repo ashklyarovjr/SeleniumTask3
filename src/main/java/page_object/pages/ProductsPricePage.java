@@ -24,6 +24,11 @@ public class ProductsPricePage extends AbstractPage{
     @FindBy(xpath = XpathContainer.ProductPriceXPATHContainer.MAIN_PAGE_LINK_XPATH)
     private WebElement mainPageLink;
 
+    public List<WebElement> getFirstFiveProductsFromPrice() {
+        return firstFiveProductsFromPrice;
+    }
 
-
+    public WebElement getMainPageLink() {
+        return mainPageLink;
+    }
 }

@@ -11,9 +11,6 @@ import page_object.utils.CustomWaits;
 
 public class MainPageSteps extends AbstractSteps {
 
-    private static final Logger LOGGER_INFO = Logger.getLogger(MainPageSteps.class);
-
-    private static final Logger LOGGER_ERR = Logger.getLogger(MainPageSteps.class);
 
     MainPage mainPage;
 
