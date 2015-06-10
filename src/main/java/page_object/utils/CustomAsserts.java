@@ -32,6 +32,15 @@ public class CustomAsserts {
         }
     }
 
+    public static void assertElementAttributeContainsString(WebElement element, String attribute, String string) {
+        try {
+            assertThat(element.getAttribute(attribute), containsString(string));
+        } catch (Exception e) {
+            LOGGER_ERR.error("CustomAsserts.class. Assertion error in assertElementAttributeContainsString method." + e.getMessage());
+            System.out.println(e.getMessage());
+        }
+    }
+
     public static void assertThatElementIsPresentOnPage(WebElement element) {
         try {
             Assert.assertNotNull(element);

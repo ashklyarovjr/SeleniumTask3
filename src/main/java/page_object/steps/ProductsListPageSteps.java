@@ -1,7 +1,6 @@
 package page_object.steps;
 
 
-import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import page_object.base.AbstractSteps;
@@ -110,6 +109,40 @@ public class ProductsListPageSteps extends AbstractSteps{
         return new ProductsComparisonPageSteps(driver, productsComparisonPage);
     }
 
+    public ProductsListPageSteps selectMinPrice() {
+
+        productsListPage.selectMinPrice();
+
+        CustomWaits.waitForElementClickable(driver, XpathContainer.ProductsListXPATHContainer.MAX_PRICE_FILTER_XPATH);
+
+        CustomAsserts.assertElementAttributeContainsString(productsListPage.getMinPriceFilterLink(), "class", "selected");
+
+        return this;
+    }
+
+    public ProductsListPageSteps selectMaxPrice() {
+
+        productsListPage.selectMaxPrice();
+
+        CustomWaits.waitForElementPresent(driver, XpathContainer.ProductsListXPATHContainer.ALL_PRODUCTS_PRICES_LIST_XPATH);
+
+        CustomAsserts.assertElementAttributeContainsString(productsListPage.getMaxPriceFilterLink(), "class", "selected");
+
+        return this;
+    }
+
+    public ProductsListPageSteps verifyPriceFilterWork() {
+
+        int lowBound = Utils.convertTextValueOfElementToInt(productsListPage.getMinPriceFilterLink());
+
+        int highBound = Utils.convertTextValueOfElementToInt(productsListPage.getMaxPriceFilterLink());
+
+        List<Integer> prices = Utils.convertPriceListToIntegerList(productsListPage.getProductPricesFromOnePageList());
+
+        Assert.assertTrue(Utils.checkThatListContentIsInBounds(prices, lowBound, highBound));
+
+        return this;
+    }
 
 
 }

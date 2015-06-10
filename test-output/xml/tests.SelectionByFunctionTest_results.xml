@@ -13,7 +13,7 @@
 <![CDATA[java.lang.AssertionError: null
   org.testng.Assert.fail(Assert.java:94)
   org.testng.Assert.fail(Assert.java:101)
-  tests.FilterByPriceTest.testSelectionByFunction(SelectionByFunctionTest.java:11)
+  testFilterPrice(SelectionByFunctionTest.java:11)
   sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
   sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
   sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

@@ -46,9 +46,30 @@ public class ProductsListPage extends AbstractPage {
     @FindBy(xpath = XpathContainer.ProductsListXPATHContainer.COMPARE_PRODUCTS_LINK_XPATH)
     private WebElement compareProductsLink;
 
+    @FindBy(xpath = XpathContainer.ProductsListXPATHContainer.NEXT_PRODUCT_LIST_PAGE_LINK_XPATH)
+    private WebElement nextPageLink;
+
+    @FindBy(xpath = XpathContainer.ProductsListXPATHContainer.MIN_PRICE_FILTER_XPATH)
+    private WebElement minPriceFilterLink;
+
+    @FindBy(xpath = XpathContainer.ProductsListXPATHContainer.MAX_PRICE_FILTER_XPATH)
+    private WebElement maxPriceFilterLink;
+
     @FindBy(xpath = XpathContainer.ProductsListXPATHContainer.MAIN_PAGE_LINK_XPATH)
     private WebElement mainPageLink;
 
+
+    public WebElement getNextPageLink() {
+        return nextPageLink;
+    }
+
+    public WebElement getMinPriceFilterLink() {
+        return minPriceFilterLink;
+    }
+
+    public WebElement getMaxPriceFilterLink() {
+        return maxPriceFilterLink;
+    }
 
     public WebElement getProductSortByPriceOption() {
         return productSortByPriceOption;
@@ -111,6 +132,21 @@ public class ProductsListPage extends AbstractPage {
     public ProductsComparisonPage goToProductsComparison() {
         compareProductsLink.click();
         return new ProductsComparisonPage(driver);
+    }
+
+    public ProductsListPage selectMinPrice() {
+        minPriceFilterLink.click();
+        return new ProductsListPage(driver);
+    }
+
+    public ProductsListPage selectMaxPrice() {
+        maxPriceFilterLink.click();
+        return new ProductsListPage(driver);
+    }
+
+    public ProductsListPage goToNextListPage() {
+        nextPageLink.click();
+        return new ProductsListPage(driver);
     }
 
 

@@ -7,7 +7,11 @@ import org.testng.annotations.Test;
 public class FilterByPriceTest extends BaseTest {
 
     @Test
-    public void testSelectionByFunction() throws Exception {
-        Assert.fail();
+    public void testPriceFilter() throws Exception {
+       mainPageSteps.goToWashersCategory()
+               .selectMinPrice()
+               .selectMaxPrice()
+               .verifyPriceFilterWork()
+               .goToMainPage();
     }
 }

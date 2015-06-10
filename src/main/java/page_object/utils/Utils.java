@@ -13,17 +13,6 @@ public class Utils {
 
     private static final Logger LOGGER_ERR = Logger.getLogger(Utils.class);
 
-    public static int getPriceFromString(WebElement price) {
-        if (price == null) {
-            LOGGER_ERR.error("Utils.class. getPriceFromString method exception. Price is null.");
-            throw new IllegalArgumentException("Something went wrong. Cannot get price!");
-        }
-        String[] splittedPrice = getTextValueOfWebElement(price).trim().split("\\s");
-
-        LOGGER_INFO.info("Utils.class. getPriceFromString method success.");
-        return Integer.parseInt(splittedPrice[0]);
-    }
-
     public static List<String> parseDescriptionToStringList(WebElement description) {
         if (description == null) {
             LOGGER_ERR.error("Utils.class. parseDescriptionToStringList(WebElement) method exception. Description is null.");
@@ -153,7 +142,7 @@ public class Utils {
         }
         List<Integer> prices = new ArrayList<>();
         for (WebElement price : priceList) {
-            prices.add(getPriceFromString(price));
+            prices.add(convertTextValueOfElementToInt(price));
         }
         return prices;
     }
@@ -167,6 +156,35 @@ public class Utils {
             throw new IllegalArgumentException("Something went wrong. Cannot get lists!");
         }
         return container.containsAll(content);
+    }
+
+    public static boolean checkThatListContentIsInBounds(List<Integer> content, int lowBound, int highBound) {
+        if (content == null || lowBound == 0 || highBound == 0) {
+            if (content == null)
+                LOGGER_ERR.error("Utils.class. checkThatListContentIsInBounds method exception. Content list is null.");
+            else if (lowBound == 0)
+                LOGGER_ERR.error("Utils.class. checkThatListContentIsInBounds method exception. Low bound is null.");
+            else
+                LOGGER_ERR.error("Utils.class. checkThatListContentIsInBounds method exception. High bound is null.");
+            throw new IllegalArgumentException("Something went wrong. Cannot check list!");
+        }
+
+        for (Integer number : content) {
+            if (number >= lowBound && number <= highBound)
+                continue;
+            else
+                return false;
+        }
+        return true;
+    }
+
+    public static int convertTextValueOfElementToInt(WebElement element) {
+        if (element == null) {
+            LOGGER_ERR.error("Utils.class. checkThatListContentIsInBounds method exception. Content list is null.");
+            throw new IllegalArgumentException("Something went wrong. Cannot check list!");
+        }
+        String stringValue = getTextValueOfWebElement(element).trim().replaceAll("\\D", "");
+        return Integer.parseInt(stringValue);
     }
 
 

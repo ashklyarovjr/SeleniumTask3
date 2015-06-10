@@ -8,7 +8,7 @@ public final class XpathContainer {
         public static final String PRODUCTS_SORT_BY_PRICE_XPATH = "//a[contains(@href, 'sort=price')]";
         public static final String ALL_PRODUCTS_NAMES_LIST_XPATH = "//div[@class='catalog']/div[@class='item']/div[@class='name']/a";
         public static final String FIRST_FIVE_PRODUCTS_NAMES_LIST_XPATH = "//preceding-sibling::div[@class='item'][16]/div[@class='name']/a";
-        public static final String ALL_PRODUCTS_PRICES_LIST_XPATH = "//div[@class='catalog']/div[@class='item']/div[@class='price']/a";
+        public static final String ALL_PRODUCTS_PRICES_LIST_XPATH = "//div[@class='catalog']/div[@class='item']/div[@class='price']/strong";
         public static final String FIRST_FIVE_PRODUCTS_PRICES_LIST_XPATH = "//preceding-sibling::div[@class='item'][16]/div[@class='price']/strong";
         public static final String FIRST_PRODUCT_COMPARE_OPTION_XPATH = "(//span[contains(@class, 'compare_add_link')][1])[1]";
         public static final String SECOND_PRODUCT_COMPARE_OPTION_XPATH = "(//span[contains(@class, 'compare_add_link')][1])[2]";
@@ -16,6 +16,9 @@ public final class XpathContainer {
         public static final String ALL_PRODUCTS_INFO_IN_THE_LIST_XPATH = "//div[@class='item']/div[@class='name']/a | //div[@class='item']/div[@class='description'] | //div[@class='item']//strong";
         public static final String COMPARE_PRODUCTS_LINK_XPATH = "//div/a[contains(@class,'head-compare-link')]";
         public static final String SELECTED_SORT_OPTION_XPATH = "//span[@class='span_active']";
+        public static final String MIN_PRICE_FILTER_XPATH = "(//a[contains(text(), '15000')])[1]";
+        public static final String MAX_PRICE_FILTER_XPATH = "//div[@class='group'][2]//a[contains(text(), '18000')]";
+        public static final String NEXT_PRODUCT_LIST_PAGE_LINK_XPATH = "(//li[@class='pager-next']/a)[1]";
 
     }
 
