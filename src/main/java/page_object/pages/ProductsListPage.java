@@ -24,11 +24,17 @@ public class ProductsListPage extends AbstractPage {
     @FindBys(@FindBy(xpath = XpathContainer.ProductsListXPATHContainer.ALL_PRODUCTS_PRICES_LIST_XPATH))
     private List<WebElement> productPricesFromOnePageList;
 
+    @FindBys(@FindBy(xpath = XpathContainer.ProductsListXPATHContainer.ALL_PRODUCTS_ONPAGE_DESCRIPTIONS_XPATH))
+    private List<WebElement> productDescrptnsFromOnePageList;
+
     @FindBys(@FindBy(xpath = XpathContainer.ProductsListXPATHContainer.FIRST_FIVE_PRODUCTS_PRICES_LIST_XPATH))
     private List<WebElement> firstFiveProductsPrices;
 
     @FindBys(@FindBy(xpath = XpathContainer.ProductsListXPATHContainer.FIRST_FIVE_PRODUCTS_NAMES_LIST_XPATH))
     private List<WebElement> firstFiveProductsNames;
+
+    @FindBys(@FindBy(xpath = XpathContainer.ProductsListXPATHContainer.BAKERS_MANUFACTURERS_XPATH))
+    private List<WebElement> bakersManufacturers;
 
 
     @FindBy(xpath = XpathContainer.ProductsListXPATHContainer.FIRST_PRODUCT_COMPARE_OPTION_XPATH)
@@ -58,6 +64,34 @@ public class ProductsListPage extends AbstractPage {
     @FindBy(xpath = XpathContainer.ProductsListXPATHContainer.MAIN_PAGE_LINK_XPATH)
     private WebElement mainPageLink;
 
+    @FindBy(xpath = XpathContainer.ProductsListXPATHContainer.BAKERS_FIRST_MANUFACTURER_XPATH)
+    private WebElement firstManufacturerLink;
+
+    @FindBy(xpath = XpathContainer.ProductsListXPATHContainer.BAKERS_SECOND_MANUFACTURER_XPATH)
+    private WebElement secondManufacturerLink;
+
+    @FindBy(xpath = XpathContainer.ProductsListXPATHContainer.WEIGHT_OPTION_XPATH)
+    private WebElement weightOptionLink;
+
+    public List<WebElement> getProductDescrptnsFromOnePageList() {
+        return productDescrptnsFromOnePageList;
+    }
+
+    public WebElement getFirstManufacturerLink() {
+        return firstManufacturerLink;
+    }
+
+    public WebElement getSecondManufacturerLink() {
+        return secondManufacturerLink;
+    }
+
+    public WebElement getWeightOptionLink() {
+        return weightOptionLink;
+    }
+
+    public List<WebElement> getBakersManufacturers() {
+        return bakersManufacturers;
+    }
 
     public WebElement getNextPageLink() {
         return nextPageLink;
@@ -146,6 +180,21 @@ public class ProductsListPage extends AbstractPage {
 
     public ProductsListPage goToNextListPage() {
         nextPageLink.click();
+        return new ProductsListPage(driver);
+    }
+
+    public ProductsListPage chooseFirstManufacturer() {
+        firstManufacturerLink.click();
+        return new ProductsListPage(driver);
+    }
+
+    public ProductsListPage chooseSecondManufacturer() {
+        secondManufacturerLink.click();
+        return new ProductsListPage(driver);
+    }
+
+    public ProductsListPage chooseWeightOption() {
+        weightOptionLink.click();
         return new ProductsListPage(driver);
     }
 

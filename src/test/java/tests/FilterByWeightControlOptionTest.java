@@ -3,10 +3,13 @@ package tests;
 
 import org.testng.annotations.Test;
 
-public class FilterByWeightControlOptionTest {
+public class FilterByWeightControlOptionTest extends BaseTest {
     @Test
-    public void testSix() throws Exception {
-
+    public void testWeightControlOption() throws Exception {
+        mainPageSteps.goToBakersCategory()
+                .chooseWeightOption()
+                .verifyThatFunctionFilterWorks()
+                .goToMainPage();
 
     }
 }

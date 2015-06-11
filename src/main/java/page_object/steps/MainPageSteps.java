@@ -67,7 +67,7 @@ public class MainPageSteps extends AbstractSteps {
 
         CustomWaits.waitForElementPresent(driver, XpathContainer.MainPageXPATHContainer.CONDITIONERS_CATEGORY_XPATH);
 
-        productsListPage = mainPage.chooseFridgesCategory();
+        productsListPage = mainPage.chooseConditionersCategory();
 
         CustomWaits.waitForElementPresent(driver, XpathContainer.ProductsListXPATHContainer.ALL_PRODUCTS_NAMES_LIST_XPATH);
 
@@ -79,7 +79,7 @@ public class MainPageSteps extends AbstractSteps {
 
         CustomWaits.waitForElementPresent(driver, XpathContainer.MainPageXPATHContainer.BREAD_BAKERS_CATEGORY_XPATH);
 
-        productsListPage = mainPage.chooseFridgesCategory();
+        productsListPage = mainPage.chooseBakersCategory();
 
         CustomWaits.waitForElementPresent(driver, XpathContainer.ProductsListXPATHContainer.ALL_PRODUCTS_NAMES_LIST_XPATH);
 

@@ -13,12 +13,16 @@ public final class XpathContainer {
         public static final String FIRST_PRODUCT_COMPARE_OPTION_XPATH = "(//span[contains(@class, 'compare_add_link')][1])[1]";
         public static final String SECOND_PRODUCT_COMPARE_OPTION_XPATH = "(//span[contains(@class, 'compare_add_link')][1])[2]";
         public static final String MAIN_PAGE_LINK_XPATH = "//div[@id='page-breadcrumbs']/a[@href='http://pn.com.ua/']";
-        public static final String ALL_PRODUCTS_INFO_IN_THE_LIST_XPATH = "//div[@class='item']/div[@class='name']/a | //div[@class='item']/div[@class='description'] | //div[@class='item']//strong";
         public static final String COMPARE_PRODUCTS_LINK_XPATH = "//div/a[contains(@class,'head-compare-link')]";
         public static final String SELECTED_SORT_OPTION_XPATH = "//span[@class='span_active']";
         public static final String MIN_PRICE_FILTER_XPATH = "(//a[contains(text(), '15000')])[1]";
         public static final String MAX_PRICE_FILTER_XPATH = "//div[@class='group'][2]//a[contains(text(), '18000')]";
         public static final String NEXT_PRODUCT_LIST_PAGE_LINK_XPATH = "(//li[@class='pager-next']/a)[1]";
+        public static final String BAKERS_MANUFACTURERS_XPATH = "//div[contains(@class, 'criteria')]//div[@class='group'][3]//a[contains(@class, 'active') and position() <= 2]";
+        public static final String BAKERS_FIRST_MANUFACTURER_XPATH = "//div[contains(@class, 'criteria')]//div[@class='group'][3]//a[contains(@class, 'active') and position() = 1]";
+        public static final String BAKERS_SECOND_MANUFACTURER_XPATH = "//div[contains(@class, 'criteria')]//div[@class='group'][3]//a[contains(@class, 'active') and position() = 2]";
+        public static final String WEIGHT_OPTION_XPATH = "//div[@class='group' and position() = last()]//a[2]";
+        public static final String ALL_PRODUCTS_ONPAGE_DESCRIPTIONS_XPATH = "//div[@class='item']//div[@class='description']";
 
     }
 

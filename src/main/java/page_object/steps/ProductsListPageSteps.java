@@ -14,7 +14,7 @@ import page_object.utils.Utils;
 
 import java.util.List;
 
-public class ProductsListPageSteps extends AbstractSteps{
+public class ProductsListPageSteps extends AbstractSteps {
 
     ProductsListPage productsListPage;
 
@@ -143,6 +143,49 @@ public class ProductsListPageSteps extends AbstractSteps{
 
         return this;
     }
+
+    public ProductsListPageSteps chooseManufacturers() {
+
+        CustomWaits.waitForElementClickable(driver, productsListPage.getFirstManufacturerLink());
+
+        productsListPage.chooseFirstManufacturer();
+
+        CustomWaits.waitForElementClickable(driver, productsListPage.getSecondManufacturerLink());
+
+        productsListPage.chooseSecondManufacturer();
+
+        return this;
+    }
+
+    public ProductsListPageSteps verifyManufacturerFilterWorks() {
+
+        List<String> manufacturersList = Utils.parseWebElementListToStringList(productsListPage.getBakersManufacturers());
+
+        List<String> prodNamesList = Utils.parseProdNamesListToStringList(productsListPage.getProductNamesFromOnePageList());
+
+        Assert.assertTrue(Utils.checkThatProductNamesCorrespondToManufacturers(prodNamesList, manufacturersList));
+
+        return this;
+    }
+
+    public ProductsListPageSteps chooseWeightOption() {
+
+        CustomWaits.waitForElementClickable(driver, productsListPage.getWeightOptionLink());
+
+        productsListPage.chooseWeightOption();
+
+        return this;
+    }
+
+    public ProductsListPageSteps verifyThatFunctionFilterWorks() {
+
+        String weightOption = Utils.getTextValueOfWebElement(productsListPage.getWeightOptionLink());
+
+        Assert.assertTrue(Utils.verifyAnyDescriptionContainsString(productsListPage.getProductDescrptnsFromOnePageList(), weightOption));
+
+        return this;
+    }
+
 
 
 }

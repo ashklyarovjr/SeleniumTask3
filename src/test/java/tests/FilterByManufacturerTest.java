@@ -5,8 +5,10 @@ import org.testng.annotations.Test;
 
 public class FilterByManufacturerTest extends BaseTest {
     @Test
-    public void testOne() throws Exception {
-
-
+    public void testFilterByManufacturers() throws Exception {
+        mainPageSteps.goToBakersCategory()
+                .chooseManufacturers()
+                .verifyManufacturerFilterWorks()
+                .goToMainPage();
     }
 }

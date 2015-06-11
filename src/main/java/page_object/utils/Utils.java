@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Utils {
 
@@ -13,6 +14,12 @@ public class Utils {
 
     private static final Logger LOGGER_ERR = Logger.getLogger(Utils.class);
 
+
+    /**
+     * Parses decription to List of Strings
+     * @param description - WebElement
+     * @return List<String> description
+     * */
     public static List<String> parseDescriptionToStringList(WebElement description) {
         if (description == null) {
             LOGGER_ERR.error("Utils.class. parseDescriptionToStringList(WebElement) method exception. Description is null.");
@@ -28,7 +35,11 @@ public class Utils {
         return newDesc;
     }
 
-
+    /**
+     * Parses list of WebElements to List of Strings
+     * @param elements - List of WebElements
+     * @return stringList - List of Strings
+     * */
     public static List<String> parseWebElementListToStringList(List<WebElement> elements) {
         if (elements == null) {
             LOGGER_ERR.error("Utils.class. parseDescriptionToStringList(List<WebElement>) method exception. Description is null.");
@@ -42,6 +53,9 @@ public class Utils {
         return stringList;
     }
 
+    /**
+     * ---
+     * */
     public static boolean compareDescriptions(List<String> smallDescription, List<String> fullDescription) {
         if (smallDescription == null || fullDescription == null) {
             if (smallDescription == null)
@@ -59,6 +73,12 @@ public class Utils {
         return counter == smallDescription.size();
     }
 
+
+    /**
+     * Method get text value from WebElement
+     * @param element - WebElement
+     * @return value - WebElement's text value
+     * */
     public static String getTextValueOfWebElement(WebElement element) {
         if (element == null) {
             LOGGER_ERR.error("Utils.class. getTextValueOfWebElement method exception. WebElement is null.");
@@ -75,16 +95,11 @@ public class Utils {
         }
     }
 
-
-    public static String getNameOfProductFromHeader(WebElement header) {
-        if (header == null) {
-            LOGGER_ERR.error("Utils.class. getNameOfProductFromHeader method exception. WebElement is null.");
-            throw new IllegalArgumentException("Something went wrong. Cannot get element!");
-        }
-        String[] splittedHeader = getTextValueOfWebElement(header).trim().split("\\s");
-        return splittedHeader[0] + " " + splittedHeader[1];
-    }
-
+    /**
+     * Method compares string values of two WebElements
+     * @param first - first WebElement
+     * @param second - second WebElement
+     * */
     public static boolean compareWebElementsStringValues(WebElement first, WebElement second) {
         if (first == null || second == null) {
             if (first == null)
@@ -96,6 +111,9 @@ public class Utils {
         return getTextValueOfWebElement(first).equalsIgnoreCase(getTextValueOfWebElement(second));
     }
 
+    /**
+     *
+     * */
     public static boolean checkIfStringListIsSorted(List<String> list) {
         if (list == null) {
             LOGGER_ERR.error("Utils.class. checkIfStringListIsSorted method exception. List is null.");
@@ -170,9 +188,7 @@ public class Utils {
         }
 
         for (Integer number : content) {
-            if (number >= lowBound && number <= highBound)
-                continue;
-            else
+            if (!(number >= lowBound && number <= highBound))
                 return false;
         }
         return true;
@@ -187,7 +203,65 @@ public class Utils {
         return Integer.parseInt(stringValue);
     }
 
+    public static String getManufacturerFromName(WebElement name) {
+        if (name == null) {
+            LOGGER_ERR.error("Utils.class. getManufacturerFromName method exception. Name is null.");
+            throw new IllegalArgumentException("Something went wrong. Cannot check list!");
+        }
+        String[] stringName = getTextValueOfWebElement(name).trim().split("\\s");
+        return stringName[0];
+    }
 
+    public static List<String> parseProdNamesListToStringList(List<WebElement> names) {
+        if (names == null) {
+            LOGGER_ERR.error("Utils.class. parseDescriptionToStringList(List<WebElement>) method exception. Description is null.");
+            throw new IllegalArgumentException("Something went wrong. Cannot get description!");
+        }
+        return names.stream().map(Utils::getManufacturerFromName).collect(Collectors.toList());
+    }
 
+    public static boolean checkThatProductNamesCorrespondToManufacturers(List<String> prodNames, List<String> manufacturers) {
+        if (prodNames == null || manufacturers == null) {
+            if (prodNames == null)
+                LOGGER_ERR.error("Utils.class. checkThatProductNamesCorrespondToManufacturers method exception. Products names list is null.");
+            else
+                LOGGER_ERR.error("Utils.class. checkThatProductNamesCorrespondToManufacturers method exception. Manufacturers list is null.");
+            throw new IllegalArgumentException("Something went wrong. Cannot get lists!");
+        }
+        for (String prodName : prodNames) {
+            if (!manufacturers.contains(prodName))
+                return false;
+        }
+        return true;
+    }
+
+    public static List<String> parseBakersDescriptionToStringList(WebElement description) {
+        if (description == null) {
+            LOGGER_ERR.error("Utils.class. getManufacturerFromName method exception. Name is null.");
+            throw new IllegalArgumentException("Something went wrong. Cannot check list!");
+        }
+        String[] splittedDesc = getTextValueOfWebElement(description).trim().split(";\\s|,\\s");
+
+        List<String> newDesc = new ArrayList<>();
+
+        Collections.addAll(newDesc, splittedDesc);
+
+        return newDesc;
+    }
+
+    public static boolean verifyAnyDescriptionContainsString(List<WebElement> descriptions, String string) {
+        if (descriptions == null || string == null) {
+            if (descriptions == null) {
+                LOGGER_ERR.error("Utils.class. verifyAnyDescriptionContainsString method exception. Description is null.");
+            } else
+                LOGGER_ERR.error("Utils.class. verifyAnyDescriptionContainsString method exception. String is null.");
+            throw new IllegalArgumentException("Something went wrong. Cannot get description!");
+        }
+        for (WebElement description : descriptions) {
+            if (!parseBakersDescriptionToStringList(description).contains(string))
+                return false;
+        }
+        return true;
+    }
 
 }
