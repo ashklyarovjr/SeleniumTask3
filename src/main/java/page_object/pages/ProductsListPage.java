@@ -33,6 +33,9 @@ public class ProductsListPage extends AbstractPage {
     @FindBys(@FindBy(xpath = XpathContainer.ProductsListXPATHContainer.FIRST_FIVE_PRODUCTS_NAMES_LIST_XPATH))
     private List<WebElement> firstFiveProductsNames;
 
+    @FindBys(@FindBy(xpath = XpathContainer.ProductsListXPATHContainer.FIRST_FIVE_PRODUCTS_DESCRIPTIONS_XPATH))
+    private List<WebElement> firstFiveProductsDescriptions;
+
     @FindBys(@FindBy(xpath = XpathContainer.ProductsListXPATHContainer.BAKERS_MANUFACTURERS_XPATH))
     private List<WebElement> bakersManufacturers;
 
@@ -72,6 +75,11 @@ public class ProductsListPage extends AbstractPage {
 
     @FindBy(xpath = XpathContainer.ProductsListXPATHContainer.WEIGHT_OPTION_XPATH)
     private WebElement weightOptionLink;
+
+
+    public List<WebElement> getFirstFiveProductsDescriptions() {
+        return firstFiveProductsDescriptions;
+    }
 
     public List<WebElement> getProductDescrptnsFromOnePageList() {
         return productDescrptnsFromOnePageList;
@@ -197,6 +205,8 @@ public class ProductsListPage extends AbstractPage {
         weightOptionLink.click();
         return new ProductsListPage(driver);
     }
+
+
 
 
 

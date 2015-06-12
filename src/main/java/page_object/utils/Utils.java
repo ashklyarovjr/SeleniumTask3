@@ -25,12 +25,16 @@ public class Utils {
             LOGGER_ERR.error("Utils.class. parseDescriptionToStringList(WebElement) method exception. Description is null.");
             throw new IllegalArgumentException("Something went wrong. Cannot get description!");
         }
-        String[] splitted = description.getText().trim().split("\\s\\b|;\\s");
+        
+        //REGEXP fails. Doesn't work.
+        String[] splitted = description.getText().trim().split(";\\s|\\s\\b");
 
-        splitted[0] = splitted[0] + splitted[1];
+        List<String> linkedSplitted = new LinkedList<>();
+
+        Collections.addAll(linkedSplitted, splitted);
 
         List<String> newDesc = new ArrayList<>();
-        Collections.addAll(newDesc, splitted);
+        newDesc.addAll(linkedSplitted);
         LOGGER_INFO.info("Utils.class. parseDescriptionToStringList(WebElement) method success.");
         return newDesc;
     }

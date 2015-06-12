@@ -7,6 +7,7 @@ import page_object.constants_containers.XpathContainer;
 import page_object.pages.MainPage;
 import page_object.pages.ProductsComparisonPage;
 import page_object.pages.ProductsInfoPage;
+import page_object.pages.ProductsListPage;
 import page_object.utils.CustomAsserts;
 import page_object.utils.CustomWaits;
 import page_object.utils.Utils;
@@ -43,6 +44,13 @@ public class ProductsInfoPageSteps extends AbstractSteps {
         CustomWaits.waitForElementPresent(driver, XpathContainer.ProductsComparisonXPATHContainer.BOTH_PRODUCTS_INFO_XPATH);
 
         return new ProductsComparisonPageSteps(driver, productsComparisonPage, productDescription);
+    }
+
+    public ProductsListPageSteps goBackToProdList() {
+
+        ProductsListPage productsListPage = productsInfoPage.goBackToCategory();
+
+        return new ProductsListPageSteps(driver, productsListPage);
     }
 
 

@@ -23,6 +23,7 @@ public final class XpathContainer {
         public static final String BAKERS_SECOND_MANUFACTURER_XPATH = "//div[contains(@class, 'criteria')]//div[@class='group'][3]//a[contains(@class, 'active') and position() = 2]";
         public static final String WEIGHT_OPTION_XPATH = "//div[@class='group' and position() = last()]//a[2]";
         public static final String ALL_PRODUCTS_ONPAGE_DESCRIPTIONS_XPATH = "//div[@class='item']//div[@class='description']";
+        public static final String FIRST_FIVE_PRODUCTS_DESCRIPTIONS_XPATH = "//div[@class='item' and position() <= 7]//div[@class='description']";
 
     }
 
@@ -39,6 +40,7 @@ public final class XpathContainer {
         public static final String PRODUCT_DESCRIPTION_XPATH = "//div[@class='row']/span[2]";
         public static final String MAIN_PAGE_LINK_XPATH = "//div[@id='page-breadcrumbs']/a[@href='http://pn.com.ua/']";
         public static final String COMPARE_PRODUCTS_LINK_XPATH = "//div/a[contains(@class,'head-compare-link')]";
+        public static final String BACK_TO_CATEGORY_XPATH = "//div[@id='page-breadcrumbs']/a[position() = last()]";
     }
 
     public final class ProductPriceXPATHContainer {

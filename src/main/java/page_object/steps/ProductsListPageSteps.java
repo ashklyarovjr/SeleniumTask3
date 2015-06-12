@@ -2,16 +2,19 @@ package page_object.steps;
 
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import page_object.base.AbstractSteps;
 import page_object.constants_containers.XpathContainer;
 import page_object.pages.MainPage;
 import page_object.pages.ProductsComparisonPage;
+import page_object.pages.ProductsInfoPage;
 import page_object.pages.ProductsListPage;
 import page_object.utils.CustomAsserts;
 import page_object.utils.CustomWaits;
 import page_object.utils.Utils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductsListPageSteps extends AbstractSteps {
@@ -21,6 +24,8 @@ public class ProductsListPageSteps extends AbstractSteps {
     MainPage mainPage;
 
     ProductsComparisonPage productsComparisonPage;
+
+    ProductsInfoPage productInfoPage;
 
     public ProductsListPageSteps(WebDriver driver, ProductsListPage productsListPage) {
         super(driver);
@@ -185,6 +190,27 @@ public class ProductsListPageSteps extends AbstractSteps {
 
         return this;
     }
+
+    public ProductsListPageSteps verifyDescriptionsMatch() {
+
+        for (int i = 0; i < productsListPage.getFirstFiveProductsNames().size(); i++) {
+
+            List<String> prodSmallDescription = Utils.parseDescriptionToStringList(productsListPage.getFirstFiveProductsDescriptions().get(i));
+
+            productsListPage.getFirstFiveProductsNames().get(i).click();
+
+            productInfoPage = new ProductsInfoPage(driver);
+
+            List<String> description = Utils.parseWebElementListToStringList(productInfoPage.getProductsBaseInfoList());
+
+            Assert.assertTrue(Utils.checkThatListContainsAnotherList(description, prodSmallDescription));
+
+            this.productsListPage = productInfoPage.goBackToCategory();
+        }
+        return this;
+    }
+
+
 
 
 

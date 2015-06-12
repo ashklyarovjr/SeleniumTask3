@@ -27,6 +27,9 @@ public class ProductsInfoPage extends AbstractPage {
     @FindBy(xpath = XpathContainer.ProductInfoXPATHContainer.COMPARE_PRODUCTS_LINK_XPATH)
     private WebElement compareProductsLink;
 
+    @FindBy(xpath = XpathContainer.ProductInfoXPATHContainer.BACK_TO_CATEGORY_XPATH)
+    private WebElement backToCategoryLink;
+
     public List<WebElement> getProductsBaseInfoList() {
         return productsBaseInfoList;
     }
@@ -42,5 +45,10 @@ public class ProductsInfoPage extends AbstractPage {
     public ProductsComparisonPage goToComparisonPage() {
         compareProductsLink.click();
         return new ProductsComparisonPage(driver);
+    }
+
+    public ProductsListPage goBackToCategory() {
+        backToCategoryLink.click();
+        return new ProductsListPage(driver);
     }
 }
